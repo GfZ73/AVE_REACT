@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Login.jsx";
 import Home from "./Home.jsx";
+import About from "./about.jsx";
+import Contact from "./contact.jsx";
+import Navbar from "./navbar.jsx";
 
 function App() {
   return (
@@ -12,10 +15,21 @@ function App() {
         <div className="wave"></div>
       </div>
 
-      {/* reszta aplikacji */}
-      <Routes>
+   <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Home />} />
+        <Route
+          path="/*"
+          element={
+            <>
+              <Navbar />
+              <Routes>
+                <Route path="home" element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="contact" element={<Contact />} />
+              </Routes>
+            </>
+          }
+        />
       </Routes>
     </Router>
   );

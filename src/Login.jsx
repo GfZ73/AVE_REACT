@@ -10,7 +10,7 @@ function Login() {
 
   const loginUser = async () => {
     try {
-      const res = await fetch("http://localhost:3000/login", {
+      const res = await fetch("https://ave-react.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ login, password }),
@@ -26,7 +26,7 @@ function Login() {
 
   const register = async () => {
     try {
-      const res = await fetch("http://localhost:3000/register", {
+      const res = await fetch("https://ave-react.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ login, password }),
