@@ -703,6 +703,7 @@ const styles = {
   borderRadius: '50%',
   animation: 'spin 1s linear infinite'
 }
+
   },
     kolumnaKategoria: { width: '20%' },
     kolumnaNazwa: { width: '25%' },
@@ -710,5 +711,39 @@ const styles = {
     kolumnaData: { width: '15%' },
     kolumnaAkcje: { width: '25%' },
   };
+
+// Responsywność – na telefonie obok siebie
+if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+  styles.container = {
+    ...styles.container,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: '15px',
+    padding: '15px'
+  };
   
+  styles.lewyPanel = {
+    ...styles.lewyPanel,
+    flex: '0 0 35%',
+    minWidth: '140px',
+    padding: '15px'
+  };
+  
+  styles.prawyPanel = {
+    ...styles.prawyPanel,
+    flex: '0 0 60%'
+  };
+  
+  styles.kategorieButton = {
+    ...styles.kategorieButton,
+    padding: '8px 12px',
+    fontSize: '12px'
+  };
+  
+  styles.sumaKwota = {
+    ...styles.sumaKwota,
+    fontSize: '32px',
+    padding: '10px 20px'
+  };
+}
   export default styles;

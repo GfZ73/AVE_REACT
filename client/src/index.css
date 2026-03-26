@@ -71,3 +71,33 @@ body::before {
 }
 
 /* Style dla navbar - usuwamy stary .navbar */
+/* Na telefonie – obok siebie */
+@media (max-width: 768px) {
+  div[style*="display: flex"] {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+  }
+  
+  /* Panel lewy – węższy */
+  div[style*="flex: 0 0 400px"] {
+    flex: 0 0 35% !important;
+    min-width: 140px !important;
+  }
+  
+  /* Panel prawy – szerszy */
+  div[style*="flex: 1"] {
+    flex: 0 0 60% !important;
+  }
+  
+  /* Kategorie – mniejsze */
+  button[style*="padding: 15px 30px"] {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+  
+  /* Suma – mniejsza */
+  div[style*="font-size: 72px"] {
+    font-size: 32px !important;
+    padding: 10px 20px !important;
+  }
+}
