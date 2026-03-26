@@ -1,0 +1,73 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+}
+
+#root {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  z-index: 1;
+  overflow: auto;
+}
+
+/* tło gradientowe */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
+  background-size: 600% 600%;
+  animation: gradientFlow 30s ease infinite;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* kontener fal */
+.wave-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  pointer-events: none; 
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  width: 200%; height: 200%;
+  top: -50%; left: -50%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.1));
+  border-radius: 43%;
+  animation: swirl 30s linear infinite;
+  clip-path: polygon(
+    0% 50%, 5% 52%, 10% 48%, 15% 50%, 20% 52%, 25% 48%, 30% 50%, 
+    35% 52%, 40% 48%, 45% 50%, 50% 52%, 55% 48%, 60% 50%, 65% 52%, 
+    70% 48%, 75% 50%, 80% 52%, 85% 48%, 90% 50%, 95% 52%, 100% 48%
+  );
+  pointer-events: none;
+}
+
+.wave:nth-child(2) { animation-delay: 5s; opacity: 0.08; transform: scale(1.2) rotate(15deg);}
+.wave:nth-child(3) { animation-delay: 10s; opacity: 0.12; transform: scale(1.4) rotate(-10deg);}
+
+@keyframes swirl {
+  0% { transform: translateX(0) translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateX(-10%) translateY(5%) rotate(90deg) scale(1.05); }
+  50% { transform: translateX(-20%) translateY(0) rotate(180deg) scale(1.1); }
+  75% { transform: translateX(-10%) translateY(-5%) rotate(270deg) scale(1.05); }
+  100% { transform: translateX(0) translateY(0) rotate(360deg) scale(1); }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Style dla navbar - usuwamy stary .navbar */
