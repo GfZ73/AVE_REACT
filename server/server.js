@@ -509,7 +509,7 @@ Zwróć odpowiedź jako JSON:
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Dla wszystkich ścieżek, które nie są API – zwróć index.html (React routing)
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   // Pomijamy endpointy API
   if (req.path.startsWith('/api') || 
       req.path.startsWith('/expenses') || 
