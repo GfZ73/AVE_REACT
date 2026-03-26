@@ -509,19 +509,19 @@ Zwróć odpowiedź jako JSON:
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Dla wszystkich ścieżek, które nie są API – zwróć index.html (React routing)
-app.get('/*', (req, res) => {
-  // Pomijamy endpointy API
-  if (req.path.startsWith('/api') || 
-      req.path.startsWith('/expenses') || 
-      req.path.startsWith('/login') || 
-      req.path.startsWith('/register') || 
-      req.path.startsWith('/auth') || 
-      req.path.startsWith('/user') ||
-      req.path.startsWith('/analyze-receipt-gpt')) {
-    return;
-  }
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-});
+//app.get('/*', (req, res) => {
+  //// Pomijamy endpointy API
+ // if (req.path.startsWith('/api') || 
+   //   req.path.startsWith('/expenses') || 
+     // req.path.startsWith('/login') || 
+     // req.path.startsWith('/register') || 
+     // req.path.startsWith('/auth') || 
+     // req.path.startsWith('/user') ||
+     // req.path.startsWith('/analyze-receipt-gpt')) {
+   // return;
+ // }
+ // res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+//});
 
 // ============ URUCHOMIENIE SERWERA ============
 const PORT = process.env.PORT || 3000;
